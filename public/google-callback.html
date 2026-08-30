@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ForgeAI Authentication</title>
+  <style>
+    body {
+      background-color: #020617;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .spinner {
+      border: 4px solid rgba(20, 184, 166, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border-left-color: #14b8a6;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    h3 {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="spinner"></div>
+  <h3 id="status-title">Authenticating...</h3>
+  <p id="status-desc">Establishing secure handshake with Google Accounts.</p>
+
+  <script>
+    // Parse Google's response from hash fragment or query string
+    const hashParams = new URLSearchParams(window.location.hash.substring(1));
+    const queryParams = new URLSearchParams(window.location.search);
+    
+    const idToken = hashParams.get("id_token") || queryParams.get("id_token");
+    const accessToken = hashParams.get("access_token") || queryParams.get("access_token");
+    const error = hashParams.get("error") || queryParams.get("error");
+
+    const statusTitle = document.getElementById("status-title");
+    const statusDesc = document.getElementById("status-desc");
+
+    if (idToken) {
+      statusTitle.textContent = "Authorized!";
+      statusDesc.textContent = "Syncing profile with ForgeAI workspace... Closing shortly.";
+      
+      if (window.opener) {
+        window.opener.postMessage({ 
+          type: 'GOOGLE_OAUTH_SUCCESS', 
+          idToken: idToken,
+          accessToken: accessToken
+        }, '*');
+        
+        // Brief timeout to ensure postMessage fires before close
+        setTimeout(() => {
+          window.close();
+        }, 500);
+      } else {
+        statusDesc.textContent = "Handshake complete. You may close this window manually.";
+      }
+    } else if (error) {
+      statusTitle.textContent = "Authentication Mismatch";
+      statusDesc.textContent = "Google Account Login failed: " + error;
+      statusTitle.style.color = "#f87171";
+
+      if (window.opener) {
+        window.opener.postMessage({ 
+          type: 'GOOGLE_OAUTH_FAILURE', 
+          error: error 
+        }, '*');
+        
+        setTimeout(() => {
+          window.close();
+        }, 3000);
+      }
+    } else {
+      statusTitle.textContent = "Invalid Request";
+      statusDesc.textContent = "No valid credential payload detected.";
+      statusTitle.style.color = "#f87171";
+    }
+  </script>
+</body>
+</html>
