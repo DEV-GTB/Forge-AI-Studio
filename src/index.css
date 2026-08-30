@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* Universal Theme Classes and Contrast Adjustments */
+
+/* Light Theme Overrides */
+.theme-light {
+  color-scheme: light;
+}
+
+.theme-light .bg-slate-950,
+.theme-light .bg-slate-900,
+.theme-light .bg-slate-900\/30,
+.theme-light .bg-slate-900\/40,
+.theme-light .bg-slate-900\/60,
+.theme-light .bg-slate-900\/80,
+.theme-light .bg-slate-950\/60,
+.theme-light .bg-slate-950\/80,
+.theme-light .bg-slate-950\/90,
+.theme-light aside,
+.theme-light header {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+.theme-light .bg-slate-900\/30,
+.theme-light .bg-slate-900\/40,
+.theme-light .bg-slate-900\/60,
+.theme-light .bg-slate-950\/60,
+.theme-light .bg-slate-950\/80,
+.theme-light .bg-slate-950\/90,
+.theme-light aside,
+.theme-light header,
+.theme-light .border-slate-800,
+.theme-light .border-slate-850,
+.theme-light .border-slate-900 {
+  border-color: #cbd5e1 !important;
+}
+
+.theme-light .text-white,
+.theme-light .text-slate-100,
+.theme-light .text-slate-200 {
+  color: #0f172a !important;
+}
+
+.theme-light .text-slate-300,
+.theme-light .text-slate-400 {
+  color: #334155 !important;
+}
+
+.theme-light .text-slate-500,
+.theme-light .text-slate-600 {
+  color: #475569 !important;
+}
+
+.theme-light input,
+.theme-light select,
+.theme-light textarea {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* Midnight Theme Overrides */
+.theme-midnight {
+  color-scheme: dark;
+}
+.theme-midnight .bg-slate-950,
+.theme-midnight aside,
+.theme-midnight header {
+  background-color: #09090b !important;
+}
+.theme-midnight .bg-slate-900,
+.theme-midnight .bg-slate-900\/30,
+.theme-midnight .bg-slate-900\/40,
+.theme-midnight .bg-slate-900\/60 {
+  background-color: #18181b !important;
+  border-color: #27272a !important;
+}
+
+/* Ocean Theme Overrides */
+.theme-ocean {
+  color-scheme: dark;
+}
+.theme-ocean .bg-slate-950,
+.theme-ocean aside,
+.theme-ocean header {
+  background-color: #030712 !important;
+}
+.theme-ocean .bg-slate-900,
+.theme-ocean .bg-slate-900\/30,
+.theme-ocean .bg-slate-900\/40,
+.theme-ocean .bg-slate-900\/60 {
+  background-color: #0c4a6e !important;
+  border-color: #0369a1 !important;
+}
+
+/* Forest Theme Overrides */
+.theme-forest {
+  color-scheme: dark;
+}
+.theme-forest .bg-slate-950,
+.theme-forest aside,
+.theme-forest header {
+  background-color: #0c0a09 !important;
+}
+.theme-forest .bg-slate-900,
+.theme-forest .bg-slate-900\/30,
+.theme-forest .bg-slate-900\/40,
+.theme-forest .bg-slate-900\/60 {
+  background-color: #1c1917 !important;
+  border-color: #292524 !important;
+}
+
+.theme-blue {
+  color-scheme: dark;
+}
+.theme-blue .bg-slate-950,
+.theme-blue aside,
+.theme-blue header {
+  background-color: #06131f !important;
+}
+.theme-blue .bg-slate-900,
+.theme-blue .bg-slate-900\/30,
+.theme-blue .bg-slate-900\/40,
+.theme-blue .bg-slate-900\/60 {
+  background-color: #10273b !important;
+  border-color: #1d4466 !important;
+}
+
+.theme-pink {
+  color-scheme: dark;
+}
+.theme-pink .bg-slate-950,
+.theme-pink aside,
+.theme-pink header {
+  background-color: #170d18 !important;
+}
+.theme-pink .bg-slate-900,
+.theme-pink .bg-slate-900\/30,
+.theme-pink .bg-slate-900\/40,
+.theme-pink .bg-slate-900\/60 {
+  background-color: #34182e !important;
+  border-color: #5d2a49 !important;
+}
+
+.theme-white {
+  color-scheme: light;
+}
+.theme-white .bg-slate-950,
+.theme-white .bg-slate-900,
+.theme-white .bg-slate-900\/30,
+.theme-white .bg-slate-900\/40,
+.theme-white .bg-slate-900\/60,
+.theme-white aside,
+.theme-white header {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+.theme-white .border-slate-800,
+.theme-white .border-slate-850,
+.theme-white .border-slate-900 {
+  border-color: #dfe7ef !important;
+}
+.theme-white input,
+.theme-white select,
+.theme-white textarea {
+  background-color: #ffffff !important;
+  border-color: #dfe7ef !important;
+  color: #0f172a !important;
+}
